@@ -8,9 +8,9 @@ import { useState } from "react";
 
 export default function CartPage() {
     const { items, removeItem, updateQuantity, total } = useCartStore();
-    const [removingId, setRemovingId] = useState<number | null>(null);
+    const [removingId, setRemovingId] = useState<string | null>(null);
 
-    const handleRemove = (id: number) => {
+    const handleRemove = (id: string) => {
         setRemovingId(id);
         setTimeout(() => {
             removeItem(id);
