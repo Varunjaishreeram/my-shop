@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // ✅ 1. Import Variants type
 import {
     Mail,
     Phone,
@@ -20,7 +20,7 @@ import {
 import { Button } from "@/components/ui/button";
 
 export default function AboutPage() {
-    const imagePath = "/logo.jpg"; // Ensure this exists in public/
+    const imagePath = "/logo.jpg";
 
     const formatWhatsAppNumber = (number: string) => {
         let cleanedNumber = number.replace(/\s+/g, "");
@@ -37,9 +37,15 @@ export default function AboutPage() {
         { name: "Twitter", icon: <Twitter size={20} />, href: "#", color: "hover:text-sky-500 hover:bg-sky-50" },
     ];
 
-    const fadeUp = {
+    // ✅ 2. Explicitly type this object as 'Variants'
+    // This fixes the "Type 'string' is not assignable to type 'Easing'" error
+    const fadeUp: Variants = {
         hidden: { opacity: 0, y: 40 },
-        visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" as const } }
+        visible: {
+            opacity: 1,
+            y: 0,
+            transition: { duration: 0.8, ease: "easeOut" }
+        }
     };
 
     return (
