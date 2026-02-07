@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
 import {
     Mail,
     Phone,
@@ -18,17 +17,6 @@ import {
     ExternalLink
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-
-const fadeUp = {
-    hidden: { opacity: 0, y: 40 },
-    visible: {
-        opacity: 1,
-        y: 0,
-        transition: {
-            duration: 0.8
-        }
-    }
-} as const;
 
 export default function AboutPage() {
     const imagePath = "/logo.jpg";
@@ -51,39 +39,93 @@ export default function AboutPage() {
     return (
         <div className="min-h-screen bg-[#FDFCF8] text-stone-800 font-sans selection:bg-amber-100 selection:text-emerald-950 overflow-hidden">
 
+            {/* CSS Animations */}
+            <style jsx>{`
+                @keyframes fadeUp {
+                    from {
+                        opacity: 0;
+                        transform: translateY(40px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateY(0);
+                    }
+                }
+                @keyframes fadeIn {
+                    from {
+                        opacity: 0;
+                    }
+                    to {
+                        opacity: 1;
+                    }
+                }
+                @keyframes slideInLeft {
+                    from {
+                        opacity: 0;
+                        transform: translateX(-50px);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: translateX(0);
+                    }
+                }
+                @keyframes scaleIn {
+                    from {
+                        opacity: 0;
+                        transform: scale(0.9);
+                    }
+                    to {
+                        opacity: 1;
+                        transform: scale(1);
+                    }
+                }
+                .animate-fade-up {
+                    animation: fadeUp 0.8s ease-out forwards;
+                }
+                .animate-fade-up-delay-1 {
+                    animation: fadeUp 0.8s ease-out 0.1s forwards;
+                    opacity: 0;
+                }
+                .animate-fade-up-delay-2 {
+                    animation: fadeUp 0.8s ease-out 0.2s forwards;
+                    opacity: 0;
+                }
+                .animate-slide-in-left {
+                    animation: slideInLeft 0.8s ease-out forwards;
+                }
+                .animate-scale-in {
+                    animation: scaleIn 0.8s ease-out forwards;
+                }
+                .animate-fade-in {
+                    animation: fadeIn 0.6s ease-out 0.3s forwards;
+                    opacity: 0;
+                }
+                .hover-lift {
+                    transition: transform 0.3s ease;
+                }
+                .hover-lift:hover {
+                    transform: translateY(-5px);
+                }
+            `}</style>
+
             {/* 🌿 SECTION 1: ELEGANT HERO (Centered) */}
             <section className="relative py-24 md:py-32 px-6 border-b border-stone-200/60">
                 <div className="absolute top-0 left-0 w-full h-full opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/wood-pattern.png')] pointer-events-none"></div>
 
                 <div className="container mx-auto max-w-4xl text-center z-10 relative">
-                    <motion.div
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        className="flex justify-center mb-6"
-                    >
+                    <div className="flex justify-center mb-6 animate-fade-up">
                         <div className="bg-emerald-50 text-emerald-800 px-4 py-1 rounded-full text-xs font-bold tracking-widest uppercase border border-emerald-100">
                             Our Story & Contact
                         </div>
-                    </motion.div>
+                    </div>
 
-                    <motion.h1
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        className="text-5xl md:text-7xl font-serif text-emerald-950 mb-8 leading-tight"
-                    >
+                    <h1 className="text-5xl md:text-7xl font-serif text-emerald-950 mb-8 leading-tight animate-fade-up-delay-1">
                         Healing with <br /> <span className="italic text-emerald-600">Divine Grace</span>
-                    </motion.h1>
+                    </h1>
 
-                    <motion.p
-                        initial="hidden"
-                        animate="visible"
-                        variants={fadeUp}
-                        className="text-xl text-stone-600 leading-relaxed font-light"
-                    >
+                    <p className="text-xl text-stone-600 leading-relaxed font-light animate-fade-up-delay-2">
                         Guided by the wisdom of our elders and the Vedas, <strong className="font-serif text-emerald-800">Saatwik Aayurveda</strong> is more than a brand—it is a mission to reconnect our community with ancient holistic healing.
-                    </motion.p>
+                    </p>
                 </div>
             </section>
 
@@ -92,13 +134,7 @@ export default function AboutPage() {
                 <div className="grid lg:grid-cols-12 gap-12 items-center">
 
                     {/* Left: Image Card */}
-                    <motion.div
-                        initial={{ opacity: 0, x: -50 }}
-                        whileInView={{ opacity: 1, x: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="lg:col-span-5 relative"
-                    >
+                    <div className="lg:col-span-5 relative animate-slide-in-left">
                         <div className="bg-stone-100 p-8 rounded-t-[10rem] rounded-b-3xl pb-12 text-center border border-stone-200 relative z-10">
                             <img
                                 src={imagePath}
@@ -110,45 +146,40 @@ export default function AboutPage() {
                         </div>
                         {/* Decorative background circle */}
                         <div className="absolute top-10 -left-10 w-full h-full bg-emerald-50 rounded-full -z-0 opacity-60 blur-3xl"></div>
-                    </motion.div>
+                    </div>
 
                     {/* Right: The Narrative */}
                     <div className="lg:col-span-7 space-y-8">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={fadeUp}
-                        >
+                        <div className="animate-fade-up">
                             <h2 className="text-4xl font-serif text-emerald-950 mb-6">A Journey of <span className="italic text-amber-600">Devotion.</span></h2>
                             <div className="prose prose-lg text-stone-600">
                                 <p className="mb-4">
                                     <Feather className="inline w-5 h-5 text-emerald-600 mr-2" />
-                                    "It begins with <strong>Om</strong>. This spiritual foundation is the seed from which we blossomed."
+                                    &quot;It begins with <strong>Om</strong>. This spiritual foundation is the seed from which we blossomed.&quot;
                                 </p>
                                 <p className="leading-relaxed">
                                     Mr. Panchal dedicated <strong>three decades</strong> to education as a principal, marked by truthfulness and discipline. Parallel to this, a burning desire to serve society led to a <strong>20-year study of the Atharva Veda</strong>, exploring interpretations by seven scholars.
                                 </p>
                             </div>
-                        </motion.div>
+                        </div>
 
                         {/* The 3 Pillars (Horizontal Scroll on mobile, Grid on Desktop) */}
                         <div className="grid md:grid-cols-2 gap-6 pt-6">
-                            <motion.div whileHover={{ y: -5 }} className="p-6 bg-white border border-stone-100 shadow-sm rounded-xl">
+                            <div className="p-6 bg-white border border-stone-100 shadow-sm rounded-xl hover-lift">
                                 <BookOpen className="text-emerald-600 mb-3" />
                                 <h4 className="font-serif text-lg text-emerald-900 font-bold mb-2">Ancestral Legacy</h4>
                                 <p className="text-sm text-stone-500">
                                     Inspired by a 75-year-old handwritten manuscript by his grandfather, containing 450+ herbal remedies.
                                 </p>
-                            </motion.div>
+                            </div>
 
-                            <motion.div whileHover={{ y: -5 }} className="p-6 bg-white border border-stone-100 shadow-sm rounded-xl">
+                            <div className="p-6 bg-white border border-stone-100 shadow-sm rounded-xl hover-lift">
                                 <Leaf className="text-emerald-600 mb-3" />
                                 <h4 className="font-serif text-lg text-emerald-900 font-bold mb-2">30 Years of Purity</h4>
                                 <p className="text-sm text-stone-500">
                                     Our formulations have been rigorously tested, refined, and documented for over three decades before reaching you.
                                 </p>
-                            </motion.div>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -162,14 +193,9 @@ export default function AboutPage() {
                 <div className="container mx-auto max-w-4xl text-center relative z-10">
                     <Quote className="w-12 h-12 text-amber-500/80 mx-auto mb-8" />
 
-                    <motion.h3
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
-                        transition={{ duration: 0.8 }}
-                        className="text-3xl md:text-5xl font-serif leading-tight mb-8"
-                    >
-                        "Our mission transcends commerce. We aspire to reacquaint our nation with the timeless wisdom of the Vedas."
-                    </motion.h3>
+                    <h3 className="text-3xl md:text-5xl font-serif leading-tight mb-8 animate-scale-in">
+                        &quot;Our mission transcends commerce. We aspire to reacquaint our nation with the timeless wisdom of the Vedas.&quot;
+                    </h3>
 
                     <div className="w-24 h-1 bg-amber-600 mx-auto rounded-full mb-8"></div>
 
@@ -261,12 +287,7 @@ export default function AboutPage() {
             <section className="py-24 px-6 bg-gradient-to-b from-white to-emerald-50/30">
                 <div className="container mx-auto max-w-6xl">
                     <div className="text-center mb-12">
-                        <motion.div
-                            initial="hidden"
-                            whileInView="visible"
-                            viewport={{ once: true }}
-                            variants={fadeUp}
-                        >
+                        <div className="animate-fade-up">
                             <div className="inline-flex items-center gap-2 bg-emerald-100 text-emerald-800 px-4 py-1.5 rounded-full text-xs font-bold tracking-widest uppercase mb-6">
                                 <MapPin size={14} />
                                 Our Location
@@ -275,16 +296,10 @@ export default function AboutPage() {
                             <p className="text-stone-500 max-w-xl mx-auto">
                                 Experience the essence of Ayurveda at our doorstep. We welcome you to visit our humble abode.
                             </p>
-                        </motion.div>
+                        </div>
                     </div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        transition={{ duration: 0.8 }}
-                        className="grid lg:grid-cols-3 gap-8"
-                    >
+                    <div className="grid lg:grid-cols-3 gap-8 animate-fade-up-delay-1">
                         {/* Address Card */}
                         <div className="lg:col-span-1 space-y-6">
                             <div className="bg-white p-8 rounded-3xl border border-stone-200 shadow-lg hover:shadow-xl transition-all duration-300">
@@ -292,7 +307,7 @@ export default function AboutPage() {
                                     <MapPin className="h-7 w-7 text-white" />
                                 </div>
 
-                                <h3 className="text-xl font-serif text-emerald-900 mb-4">Founder's Address</h3>
+                                <h3 className="text-xl font-serif text-emerald-900 mb-4">Founder&apos;s Address</h3>
 
                                 <div className="space-y-4">
                                     <div className="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
@@ -342,20 +357,14 @@ export default function AboutPage() {
                                 </div>
                             </div>
                         </div>
-                    </motion.div>
+                    </div>
 
                     {/* Additional Note */}
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        viewport={{ once: true }}
-                        transition={{ delay: 0.3, duration: 0.6 }}
-                        className="mt-8 text-center"
-                    >
+                    <div className="mt-8 text-center animate-fade-in">
                         <p className="text-stone-500 text-sm">
                             📍 We recommend calling ahead to schedule a visit for personalized consultation.
                         </p>
-                    </motion.div>
+                    </div>
                 </div>
             </section>
 
