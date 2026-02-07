@@ -19,6 +19,19 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
+import { Variants } from 'framer-motion';
+
+const fadeUp: Variants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: {
+        opacity: 1,
+        y: 0,
+        transition: {
+            duration: 0.8
+        }
+    }
+};
+
 export default function AboutPage() {
     const imagePath = "/logo.jpg";
 
@@ -36,19 +49,6 @@ export default function AboutPage() {
         { name: "YouTube", icon: <Youtube size={20} />, href: "https://www.youtube.com/@SaatwikAayurveda", color: "hover:text-red-600 hover:bg-red-50" },
         { name: "Twitter", icon: <Twitter size={20} />, href: "#", color: "hover:text-sky-500 hover:bg-sky-50" },
     ];
-
-    // ✅ FIX: Properly typed variants without the ease string issue
-    const fadeUp = {
-        hidden: { opacity: 0, y: 40 },
-        visible: {
-            opacity: 1,
-            y: 0,
-            transition: {
-                duration: 0.8,
-                ease: "easeOut" // Use a valid easing value
-            }
-        }
-    };
 
     return (
         <div className="min-h-screen bg-[#FDFCF8] text-stone-800 font-sans selection:bg-amber-100 selection:text-emerald-950 overflow-hidden">
