@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, Variants } from "framer-motion"; // ✅ 1. Import Variants type
+import { motion, Variants } from "framer-motion"; // ✅ Import Variants type
 import {
     Mail,
     Phone,
@@ -37,14 +37,16 @@ export default function AboutPage() {
         { name: "Twitter", icon: <Twitter size={20} />, href: "#", color: "hover:text-sky-500 hover:bg-sky-50" },
     ];
 
-    // ✅ 2. Explicitly type this object as 'Variants'
-    // This fixes the "Type 'string' is not assignable to type 'Easing'" error
+    // ✅ FIX: Use 'Variants' type AND 'as const' for the ease property
     const fadeUp: Variants = {
         hidden: { opacity: 0, y: 40 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: { duration: 0.8, ease: "easeOut" }
+            transition: {
+                duration: 0.8,
+                ease: "easeOut" // Framer Motion understands this string when Typed correctly
+            }
         }
     };
 
