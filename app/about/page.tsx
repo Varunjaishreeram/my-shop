@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion, Variants } from "framer-motion"; // ✅ Import Variants type
+import { motion } from "framer-motion";
 import {
     Mail,
     Phone,
@@ -37,16 +37,13 @@ export default function AboutPage() {
         { name: "Twitter", icon: <Twitter size={20} />, href: "#", color: "hover:text-sky-500 hover:bg-sky-50" },
     ];
 
-    // ✅ FIX: Use 'Variants' type AND 'as const' for the ease property
-    const fadeUp: Variants = {
+    // ✅ FIX: Removed 'ease' property and Type Annotation to satisfy Vercel Build
+    const fadeUp = {
         hidden: { opacity: 0, y: 40 },
         visible: {
             opacity: 1,
             y: 0,
-            transition: {
-                duration: 0.8,
-                ease: "easeOut" // Framer Motion understands this string when Typed correctly
-            }
+            transition: { duration: 0.8 }
         }
     };
 
