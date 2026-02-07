@@ -19,9 +19,7 @@ import {
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
-import { Variants } from 'framer-motion';
-
-const fadeUp: Variants = {
+const fadeUp = {
     hidden: { opacity: 0, y: 40 },
     visible: {
         opacity: 1,
@@ -30,7 +28,7 @@ const fadeUp: Variants = {
             duration: 0.8
         }
     }
-};
+} as const;
 
 export default function AboutPage() {
     const imagePath = "/logo.jpg";
