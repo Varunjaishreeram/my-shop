@@ -66,14 +66,14 @@ export default function Navbar() {
                         {/* Logo */}
                         <Link href="/" className="flex items-center gap-2 sm:gap-3 group">
                             <div className="relative">
-                                <div className={`absolute inset-0 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-xl blur-md opacity-40 group-hover:opacity-60 transition-opacity duration-300 ${scrolled ? 'scale-90' : 'scale-100'}`}></div>
-                                <div className={`relative bg-gradient-to-br from-emerald-800 to-emerald-950 p-1.5 sm:p-2 rounded-xl group-hover:rotate-6 group-hover:scale-105 transition-all duration-300 shadow-lg ${scrolled ? 'scale-90' : 'scale-100'}`}>
+                                <div className={`absolute inset-0  from-emerald-400 to-emerald-600 rounded-xl blur-md opacity-40 group-hover:opacity-60 transition-opacity duration-300 ${scrolled ? 'scale-90' : 'scale-100'}`}></div>
+                                <div className={`relative  from-emerald-800 to-emerald-950 p-1.5 sm:p-2 rounded-xl group-hover:rotate-6 group-hover:scale-105 transition-all duration-300 shadow-lg ${scrolled ? 'scale-90' : 'scale-100'}`}>
                                     <img src="/logo.jpg" alt="Saatwika Ayurveda" className="h-8 w-8 sm:h-9 sm:w-9 rounded-lg object-cover" />
                                 </div>
                             </div>
                             <div className="flex flex-col">
                                 <span className={`font-serif font-bold tracking-tight text-emerald-950 transition-all duration-300 ${scrolled ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'}`}>
-                                    Saatwika<span className="bg-gradient-to-r from-emerald-600 to-teal-500 bg-clip-text text-transparent">ayurveda</span>
+                                    Saatwika Ayurveda
                                 </span>
                                 <span className={`text-[10px] sm:text-xs text-stone-500 font-medium tracking-widest uppercase transition-all duration-300 ${scrolled ? 'opacity-0 h-0' : 'opacity-100'}`}>
                                     Ancient Wisdom
