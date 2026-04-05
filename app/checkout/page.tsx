@@ -140,10 +140,10 @@ export default function CheckoutPage() {
             const data = await res.json();
 
             const options = {
-                key: "rzp_test_SCVZbmTwwOKfQM",
+                key: process.env.NEXT_PUBLIC_RAZORPAY_KEY_ID,
                 amount: data.amount,
                 currency: "INR",
-                name: "Saatwika Ayurveda",
+                name: "Saatwik Aayurveda",
                 description: "Order Payment",
                 order_id: data.orderId,
                 handler: async function (response: any) {
@@ -220,8 +220,8 @@ export default function CheckoutPage() {
                             <div key={item.step} className="flex items-center">
                                 <div className="flex flex-col items-center">
                                     <div className={`w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center transition-all duration-500 ${activeStep >= item.step
-                                            ? 'bg-gradient-to-br from-emerald-600 to-emerald-800 text-white shadow-lg shadow-emerald-900/30'
-                                            : 'bg-stone-100 text-stone-400'
+                                        ? 'bg-gradient-to-br from-emerald-600 to-emerald-800 text-white shadow-lg shadow-emerald-900/30'
+                                        : 'bg-stone-100 text-stone-400'
                                         }`}>
                                         <item.icon className="h-5 w-5" />
                                     </div>
@@ -361,8 +361,8 @@ export default function CheckoutPage() {
                                                 type="button"
                                                 onClick={() => setStateDropdownOpen(!stateDropdownOpen)}
                                                 className={`w-full h-14 px-4 text-left border-2 rounded-xl transition-all duration-300 flex items-center justify-between bg-white ${stateDropdownOpen
-                                                        ? 'border-emerald-500 ring-4 ring-emerald-500/10 scale-[1.02]'
-                                                        : 'border-stone-200 hover:border-emerald-300'
+                                                    ? 'border-emerald-500 ring-4 ring-emerald-500/10 scale-[1.02]'
+                                                    : 'border-stone-200 hover:border-emerald-300'
                                                     }`}
                                             >
                                                 <span className={`text-base ${formData.state ? "text-stone-900 font-medium" : "text-stone-400"}`}>
@@ -410,8 +410,8 @@ export default function CheckoutPage() {
                                                                     type="button"
                                                                     onClick={() => handleStateSelect(state)}
                                                                     className={`w-full px-4 py-3 text-left transition-all duration-200 flex items-center justify-between group ${formData.state === state
-                                                                            ? 'bg-emerald-100 text-emerald-900'
-                                                                            : 'hover:bg-emerald-50 text-stone-700'
+                                                                        ? 'bg-emerald-100 text-emerald-900'
+                                                                        : 'hover:bg-emerald-50 text-stone-700'
                                                                         }`}
                                                                     style={{ animationDelay: `${index * 20}ms` }}
                                                                 >

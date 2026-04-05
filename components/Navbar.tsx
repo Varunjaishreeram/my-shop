@@ -73,7 +73,7 @@ export default function Navbar() {
                             </div>
                             <div className="flex flex-col">
                                 <span className={`font-serif font-bold tracking-tight text-emerald-950 transition-all duration-300 ${scrolled ? 'text-lg sm:text-xl' : 'text-xl sm:text-2xl'}`}>
-                                    Saatwika Ayurveda
+                                    Saatwik Aayurveda
                                 </span>
                                 <span className={`text-[10px] sm:text-xs text-stone-500 font-medium tracking-widest uppercase transition-all duration-300 ${scrolled ? 'opacity-0 h-0' : 'opacity-100'}`}>
                                     Ancient Wisdom
